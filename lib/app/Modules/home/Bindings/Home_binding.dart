@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../controllers/task_controller.dart';
+import '../controllers/Home_controller.dart';
 
 class HomeBinding extends Bindings {
   @override
