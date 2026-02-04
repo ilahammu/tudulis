@@ -65,4 +65,14 @@ class TaskController extends GetxController {
     // Tulis ke gudang
     box.write('data_tugas', dataMentah);
   }
+
+  void editTugas(String idTarget, String judulBaru) {
+    var task = listTask.firstWhere((item) => item.id == idTarget);
+
+    task.judul = judulBaru;
+
+    listTask.refresh();
+
+    simpanKeStorage();
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do_list/app/Widgets/Custom_Button.dart';
+import 'package:to_do_list/app/Widgets/Custom_Card.dart';
 import '../controllers/Home_controller.dart';
 
 class HomeView extends GetView<TaskController> {
@@ -46,6 +48,8 @@ class HomeView extends GetView<TaskController> {
                   ),
                 ),
 
+                subtitle: Text("Dibuat pada: ${task.id.split(' ')[0]}"),
+
                 // CHECKBOX DI KIRI (Buat tandai selesai)
                 leading: Checkbox(
                   value: task.isSelesai,
@@ -61,6 +65,11 @@ class HomeView extends GetView<TaskController> {
                     controller.hapusTugas(task.id);
                   },
                 ),
+
+                onLongPress: () {
+                  // Saat ditekan lama, panggil fungsi dialog edit
+                  _tampilDialogEdit(context, task.id, task.judul);
+                },
               ),
             );
           },
@@ -68,9 +77,25 @@ class HomeView extends GetView<TaskController> {
       }),
 
       // TOMBOL TAMBAH (FAB)
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _tampilDialogInput(context), // Panggil fungsi di bawah
-        child: const Icon(Icons.add),
+      floatingActionButton: CustomButton(
+        label: "+ Tambah",
+        onPressed: () {
+          // Siapkan controller sementara
+          final inputC = TextEditingController();
+
+          // TAMPILKAN CARD DARI BAWAH (Pakai Get.bottomSheet)
+          Get.bottomSheet(
+            InputCard(
+              controllerInput: inputC,
+              onSimpan: () {
+                if (inputC.text.isNotEmpty) {
+                  controller.tambahTugas(inputC.text);
+                  Get.back(); // Tutup sheet
+                }
+              },
+            ),
+          );
+        },
       ),
     );
   }
@@ -92,6 +117,36 @@ class HomeView extends GetView<TaskController> {
       onConfirm: () {
         if (textEdit.text.isNotEmpty) {
           controller.tambahTugas(textEdit.text); // Panggil Controller
+          Get.back(); // Tutup dialog
+        }
+      },
+    );
+  }
+
+  // FUNGSI DIALOG EDIT
+  void _tampilDialogEdit(BuildContext context, String id, String judulLama) {
+    final controllerEdit = TextEditingController();
+
+    // ISI TEXT FIELD DENGAN JUDUL LAMA
+    controllerEdit.text = judulLama;
+
+    Get.defaultDialog(
+      title: "Edit Tugas",
+      content: TextField(
+        controller: controllerEdit,
+        autofocus: true,
+        decoration: const InputDecoration(
+          hintText: "Mau ganti jadi apa?",
+          border: OutlineInputBorder(),
+        ),
+      ),
+      textConfirm: "Simpan Perubahan",
+      textCancel: "Batal",
+      confirmTextColor: Colors.white,
+      onConfirm: () {
+        if (controllerEdit.text.isNotEmpty) {
+          // Panggil fungsi edit di controller
+          controller.editTugas(id, controllerEdit.text);
           Get.back(); // Tutup dialog
         }
       },
