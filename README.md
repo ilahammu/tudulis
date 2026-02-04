@@ -10,20 +10,17 @@ Aplikasi ini memungkinkan pengguna untuk membuat, memantau, dan menghapus tugas 
 
 | Halaman Utama | Tambah Tugas | Tugas Selesai |
 |:---:|:---:|:---:|
-| <img src="URL_GAMBAR_1_DISINI" width="200" /> | <img src="URL_GAMBAR_2_DISINI" width="200" /> | <img src="URL_GAMBAR_3_DISINI" width="200" /> |
+| <img src="images/1111.jpeg" width="200" /> | <img src="images/2222.jpeg" width="200" /> | <img src="images/3333.jpeg" width="200" /> <img src="images/4444.jpeg" width="200" /> |
 
-*(Note: Ganti `URL_GAMBAR` dengan link screenshot aplikasi kamu)*
 
 ---
 
 ## ✨ Fitur Utama
 
-* **Create Task:** Menambahkan tugas baru dengan ID unik berbasis waktu.
-* **Read Task:** Menampilkan daftar tugas secara *real-time* (Reactive).
-* **Update Status:** Menandai tugas selesai/belum selesai dengan sekali tap (Toggle).
-* **Delete Task:** Menghapus tugas yang tidak diinginkan.
-* **Data Persistence:** Data tersimpan otomatis di memori HP menggunakan **GetStorage** (Data tidak hilang walau aplikasi di-restart).
-* **Empty State Handling:** Tampilan ramah saat daftar tugas kosong (menggunakan teknik *Early Return*).
+* Menambahkan Kegiatan/Tugas yang ingin dilakukan hari ini.
+* Menampilkan daftar tugas akan diselesaikan.
+* Menandai tugas selesai/belum dengan icon *check*.
+* Menghapus tugas yang tidak diinginkan atau tidak digunakan lagi
 
 ---
 
@@ -31,14 +28,12 @@ Aplikasi ini memungkinkan pengguna untuk membuat, memantau, dan menghapus tugas 
 
 * **Language:** [Dart](https://dart.dev/)
 * **Framework:** [Flutter](https://flutter.dev/)
-* **State Management:** [GetX](https://pub.dev/packages/get) (Untuk performa tinggi & reaktif)
-* **Local Storage:** [GetStorage](https://pub.dev/packages/get_storage) (Penyimpanan ringan & cepat)
+* **State Management:** [GetX](https://pub.dev/packages/get) 
+* **Local Storage:** [GetStorage](https://pub.dev/packages/get_storage) 
 
----
+<!-- ## 🚀 Cara Menjalankan  -->
 
-## 🚀 Cara Menjalankan (Installation)
-
-1.  **Clone Repository ini**
+<!-- 1.  **Clone Repository ini**
     ```bash
     git clone [https://github.com/ilahammu/tudulis.git](https://github.com/ilahammu/tudulis.git)
     ```
@@ -56,7 +51,7 @@ Aplikasi ini memungkinkan pengguna untuk membuat, memantau, dan menghapus tugas 
 4.  **Jalankan Aplikasi**
     ```bash
     flutter run
-    ```
+    ``` -->
 
 ---
 
@@ -64,7 +59,7 @@ Aplikasi ini memungkinkan pengguna untuk membuat, memantau, dan menghapus tugas 
 
 **Ilham Muhijri**
 * GitHub: [@ilahammu](https://github.com/ilahammu)
-* LinkedIn: [Ilham Muhijri](https://www.linkedin.com/in/ilham-muhijri-yosefin-02a8a4248/)
+* LinkedIn: [Ilham Muhijri Yosefin](https://www.linkedin.com/in/ilhammuhijri/)
 
 ---
 

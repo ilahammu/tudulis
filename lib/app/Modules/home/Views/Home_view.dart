@@ -23,7 +23,7 @@ class HomeView extends GetView<TaskController> {
       body: Obx(() {
         // Cek kalau list kosong, tampilkan gambar/teks kosong
         if (controller.listTask.isEmpty) {
-          return const Center(child: Text("Belum ada tugas, yuk tambah!"));
+          return const Center(child: Text("Mulai kegiatan Hari ini!"));
         }
 
         // Kalau ada isi, tampilkan ListView
